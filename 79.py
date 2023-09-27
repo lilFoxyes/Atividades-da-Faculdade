@@ -3,14 +3,14 @@ total_contas = 0
 total_pagamento = 0
 
 
-print("{:<10} {:<15} {:<15}".format("Nº Pedido", "Tipo Pulverização", "Valor a Pagar"))
+
 
 
 while True:
     codigo_praga = input("Digite o código da praga (A, B, C ou D) ou 'fim' para encerrar: ").lower()
     
     if codigo_praga == "fim":
-        break  # Encerra a entrada de dados se o código for 'fim'
+        break  
     
     area_pulverizada = float(input("Digite a área pulverizada em acres: "))
     
@@ -28,10 +28,10 @@ while True:
     
     
     if area_pulverizada > 1000:
-        custo_pulverizacao *= 0.95  # Aplica desconto de 5% se a área for maior que 1000 acres
+        custo_pulverizacao *= 0.95  
     
     if custo_pulverizacao > 25000.00:
-        custo_pulverizacao *= 0.90  # Aplica desconto de 10% se o custo for maior que 25000
+        custo_pulverizacao *= 0.90  
     
     total_contas += 1
     total_pagamento += custo_pulverizacao
