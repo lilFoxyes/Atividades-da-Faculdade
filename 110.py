@@ -1,36 +1,20 @@
-def ler_matriz():
-    matriz = []
-    for _ in range(15):
-        linha = input().split()
-        matriz.append([int(x) for x in linha])
-    return matriz
-
-def calcular_media(matriz):
-    soma = 0
-    total_elementos = 0
-    for linha in matriz:
-        for elemento in linha:
-            soma += elemento
-            total_elementos += 1
-    media = soma / total_elementos
-    return media
-
-def somar_elementos_pares_diagonal_principal(matriz):
-    soma = 0
-    for i in range(15):
-        if matriz[i][i] % 2 == 0:
-            soma += matriz[i][i]
-    return soma
+def somatorio_diagonal_impares(matriz):
+    somatorio = 0
+    for i in range(len(matriz)):
+        if i % 2 == 0:
+            somatorio += matriz[i][i]
+    return somatorio
 
 def main():
-    print("Digite os elementos da matriz A:")
-    matriz_A = ler_matriz()
+    matriz_A = []
+    for _ in range(5):
+        linha = input("Digite os 5 elementos da linha separados por espaços: ").split()
+        linha = [int(elemento) for elemento in linha]
+        matriz_A.append(linha)
 
-    media_elementos = calcular_media(matriz_A)
-    soma_pares_diagonal = somar_elementos_pares_diagonal_principal(matriz_A)
+    resultado = somatorio_diagonal_impares(matriz_A)
 
-    print("Média de todos os elementos da matriz: {:.2f}".format(media_elementos))
-    print("Somatório dos elementos pares na diagonal principal: {}".format(soma_pares_diagonal))
+    print("O somatório dos elementos nas posições de linha e coluna ímpares da diagonal principal é: {}".format(resultado))
 
 if __name__ == "__main__":
     main()
