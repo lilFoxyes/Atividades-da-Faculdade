@@ -10,10 +10,10 @@ matriz_b = []
 
 
 for elemento in matriz_a:
-    if elemento % 2 == 1:  # Verifica se o elemento é ímpar
-        matriz_b.append(elemento * 2)  # Multiplica por 2 e adiciona a B
+    if elemento % 2 == 1:  
+        matriz_b.append(elemento * 2)  
     else:
-        matriz_b.append(elemento)  # Mantém o elemento igual e adiciona a B
+        matriz_b.append(elemento)  
 
 
 print("Matriz B (Aplicando a regra):")
