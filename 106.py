@@ -3,7 +3,7 @@ estoque = {}
 def listar_estoque():
     print("Estoque atual:")
     for codigo, quantidade in estoque.items():
-        print(f"Código: {codigo}, Quantidade: {quantidade}")
+        print("Código: {}, Quantidade: {}".format(codigo, quantidade))
 
 def processar_pedidos():
     while True:
@@ -17,11 +17,11 @@ def processar_pedidos():
         if codigo in estoque:
             if estoque[codigo] >= quantidade:
                 estoque[codigo] -= quantidade
-                print(f"Pedido do cliente {cliente} atendido. Mercadoria {codigo} retirada do estoque.")
+                print("Pedido do cliente {} atendido. Mercadoria {} retirada do estoque.".format(cliente, codigo))
             else:
-                print(f"Cliente {cliente}: Não temos a mercadoria {codigo} em estoque suficiente.")
+                print("Cliente {}: Não temos a mercadoria {} em estoque suficiente.".format(cliente, codigo))
         else:
-            print(f"Cliente {cliente}: Mercadoria {codigo} não encontrada no estoque.")
+            print("Cliente {}: Mercadoria {} não encontrada no estoque.".format(cliente, codigo))
 
 def main():
     print("Bem-vindo ao sistema de atualização de estoque.")
