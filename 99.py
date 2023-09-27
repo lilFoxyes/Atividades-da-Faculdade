@@ -1,33 +1,24 @@
-def ler_vetor():
-    vetor = []
-    for i in range(6):
-        valor = int(input("Digite o elemento {} do vetor: ".format(i + 1)))
-        vetor.append(valor)
-    return vetor
-
-def ordenar_vetor_decrescente(vetor):
-    n = len(vetor)
+def ordenar_vetor_crescente(vetor):
+    tamanho = len(vetor)
     
-    for i in range(n - 1):
-        
-        indice_max = i
-        for j in range(i + 1, n):
-            if vetor[j] > vetor[indice_max]:
-                indice_max = j
-        
-        
-        vetor[i], vetor[indice_max] = vetor[indice_max], vetor[i]
+    for i in range(tamanho):
+        for j in range(0, tamanho - i - 1):
+            if vetor[j] > vetor[j + 1]:
+                vetor[j], vetor[j + 1] = vetor[j + 1], vetor[j]
 
+def obter_vetor():
+    try:
+        tamanho = int(input("Digite o tamanho do vetor: "))
+        vetor = []
+        for i in range(tamanho):
+            elemento = int(input("Digite o elemento {}: ".format(i + 1)))
+            vetor.append(elemento)
+        return vetor
+    except ValueError:
+        print("Entrada inválida. Certifique-se de inserir números inteiros.")
 
-
-
-
-vetor = ler_vetor()
-
-
-ordenar_vetor_decrescente(vetor)
-
-
-print("Vetor Ordenado em Ordem Decrescente:")
-for elemento in vetor:
-    print(elemento, end=" ")
+print("Ordenação de Vetor usando o Método da Bolha")
+vetor = obter_vetor()
+if vetor:
+    ordenar_vetor_crescente(vetor)
+    print("Vetor ordenado em ordem crescente: {}".format(vetor))
